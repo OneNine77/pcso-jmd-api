@@ -10,6 +10,15 @@ var app = builder.Build();
 app.MapGet("Hello", () => "This is very cool I Hope");
 app.MapGet("Product", () => "Get some product in Azure SQL");
 
+app.MapPost("Product", (Product p) => "Product saved in SQL");
+app.MapPost("Chat", (Message msg) => "Message posted to chat SQL");
+
 
 app.Run();
+
+//Some data contracts
+
+public record class Message(string Name, string Msg);
+public record class Product(string Name, string Picture, int Price);
+
 
