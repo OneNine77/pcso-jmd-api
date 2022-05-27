@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'pcso-jmd-backend'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6EA841CC5E9943C084A7DBF2E0EB407D }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E93509AA8F0A4D5184898ACF1D946362 }}
           package: .
