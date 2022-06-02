@@ -70,9 +70,16 @@ app.MapDelete("/todoitems/{id}", async (int id, TodoDb db) =>
 
 app.MapDelete("/todoitems", async (TodoDb db) =>
 {
-    await db.Database.EnsureDeletedAsync();
+    if ((db?.Todos?.Count() ?? 0) < 1)
+        return Results.Ok;
+
+    foreach (var todo in db.Todos)
+    {
+        db.Todos.Remove(todo);
+    }
+
     await db.SaveChangesAsync();
-    return Results.Ok(null);
+    return Results.Ok;
 });
 
 //app.UseCors(builder => builder
